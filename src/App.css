@@ -1,38 +1,87 @@
-.App {
-  text-align: center;
+/* MINIMAL RESET  */
+/* ========================== */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+  font-family: "bpg";
+  src: url("./assets/bpg_nino_mtavruli_bold.ttf");
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* FIRST PAGE */
+/* ================ */
+
+.logoParent {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #eaeaea;
 }
 
-.App-link {
-  color: #61dafb;
+.mainLogo {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  max-height: 100%;
+  margin-top: 6rem;
+
+  will-change: auto;
+
+  animation: scale 0.4s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
 }
 
-@keyframes App-logo-spin {
+@keyframes scale {
   from {
-    transform: rotate(0deg);
+    width: 100vw;
+    height: 100vh;
   }
   to {
-    transform: rotate(360deg);
+    width: 100px;
+    height: 100px;
+    margin-top: 1rem;
+  }
+}
+
+.slide-bottom {
+  margin-top: 2rem;
+  /* overflow: hidden; */
+  max-width: 500px;
+}
+
+.slide-bottom button {
+  border: none;
+  cursor: pointer;
+  background-color: #eaeaea;
+
+  animation: 0.4s slide-bottom 1s forwards;
+  will-change: scroll-position;
+  opacity: 0;
+  transform: translateY(-40%);
+  max-width: 200px;
+  font-family: bpg;
+  font-size: 2rem;
+  color: #232323;
+}
+
+@keyframes slide-bottom {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
