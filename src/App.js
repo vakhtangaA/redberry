@@ -1,16 +1,25 @@
-import { useState, useEffect } from "react";
+import { Switch, Route } from "react-router-dom";
 
-import roundLogo from "./assets/main-logo-round.svg";
+import Identification from "./components/Identification";
+import Start from "./components/Start";
+import Covid from "./components/Covid";
 
 import "./App.css";
 
 function App() {
   return (
-    <div className="logoParent">
-      <img className="mainLogo" src={roundLogo} alt="" />
-      <div className="slide-bottom">
-        <button>კითხვარის დაწყება</button>
-      </div>
+    <div>
+      <Switch>
+        <Route path="/identification">
+          <Identification />
+        </Route>
+        <Route path="/questions">
+          <Covid />
+        </Route>
+        <Route path="/">
+          <Start />
+        </Route>
+      </Switch>
     </div>
   );
 }

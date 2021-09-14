@@ -14,9 +14,26 @@ img {
   display: block;
 }
 
+/* FONTS */
+/* ================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap");
+
 @font-face {
   font-family: "bpg";
   src: url("./assets/bpg_nino_mtavruli_bold.ttf");
+}
+
+@font-face {
+  font-family: bpgSquare;
+  src: url("./assets/bpg_extrasquare_2009.ttf");
+}
+
+/* GENERAL */
+/* ============== */
+
+body {
+  background-color: #eaeaea;
 }
 
 /* FIRST PAGE */
@@ -84,4 +101,323 @@ img {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.slide-bottom button:hover {
+  text-decoration: underline;
+}
+
+/* IDENTIFICATION PAGE  */
+/* ================================= */
+
+.identificationParent {
+  padding: 6rem 10rem;
+  background-color: #eaeaea;
+  height: 100vh;
+}
+
+.identification {
+  background-color: #eaeaea;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.identificationForm input {
+  display: block;
+}
+
+.identification input:not(.identificationSubmit) {
+  width: 513px;
+  height: 50px;
+  font-size: 1.4rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: #eaeaea;
+  border: 0.8px solid #c4c4c4;
+  font-family: bpgSquare;
+  font-weight: 400;
+  opacity: 0.8;
+  color: #232323;
+  padding: 1.8rem;
+}
+
+.inputParentDiv {
+  margin-bottom: 2.5rem;
+}
+
+.identification label {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #232323;
+  font-family: bpgSquare;
+  font-weight: 600;
+}
+
+.identificationSubmit {
+  width: 40px;
+  cursor: pointer;
+  border: none;
+  background-color: #eaeaea;
+  margin-left: calc(50% - 20px);
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.errorNotif {
+  color: #f15524;
+  font-family: bpgSquare, sans-serif;
+}
+
+@media (max-width: 1335px) {
+  .identification input:not(.identificationSubmit) {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1069px) {
+  .identification {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+}
+
+@media (max-width: 696px) {
+  .identification .peopleImg {
+    max-width: 260px;
+    margin-top: -2rem;
+  }
+
+  .identificationParent {
+    padding: 2rem;
+  }
+
+  #identificationForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .identification input:not(.identificationSubmit) {
+    padding: 0.5rem;
+    margin-bottom: 1.2rem;
+    margin-top: 0.6rem;
+  }
+}
+
+.arrowBtnRight {
+  background: url("./assets/right-arrow.svg") no-repeat left center;
+  padding-left: 20px;
+}
+
+.arrowBtnLeft {
+  background: url("./assets/left-arrow.svg") no-repeat left center;
+  padding-left: 20px;
+}
+
+.headerNav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.4rem;
+  border-bottom: 1.8px solid #232323;
+  padding-bottom: 5px;
+  margin-bottom: 4rem;
+}
+
+.headerNav span:first-child {
+  color: #fe3b1f;
+  letter-spacing: -1.1px;
+}
+
+.requiredText {
+  color: #626262;
+  border-top: 1px solid black;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  max-width: 300px;
+}
+
+.peopleImg {
+  max-width: 100%;
+  display: block;
+  height: auto;
+  margin-top: 1rem;
+}
+
+@media (max-width: 1570px) {
+  .peopleImg {
+    max-width: 500px;
+  }
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.inputParentDiv {
+  width: 390px;
+}
+
+@media (max-width: 500px) {
+  .inputParentDiv {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 340px) {
+  .inputParentDiv {
+    max-width: 230px;
+  }
+}
+
+/* COVID QUESTIONS  */
+/* ================================  */
+
+.covidQuestions {
+  font-family: bpgSquare;
+  padding: 6rem 10rem;
+}
+
+.covidIdentification {
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+/* .radio-item {
+  display: block;
+  position: relative;
+  padding: 0 6px;
+  margin: 10px 0 0;
+}
+
+.radio-item label {
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: bpgSquare;
+}
+
+.radio-item input[type="radio"] {
+  display: none;
+}
+
+.radio-item label:before {
+  content: " ";
+  display: inline-block;
+  position: relative;
+  top: 5px;
+  margin: 0 5px 0 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 11px;
+  border: 2px solid #c4c4c4;
+  background-color: transparent;
+}
+
+.radio-item input[type="radio"]:checked + label:after {
+  border-radius: 11px;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 9px;
+  left: 10px;
+  content: " ";
+  display: block;
+  background: #232323;
+} */
+
+.page2Image {
+  margin-top: -5rem;
+  max-width: 900px;
+}
+
+@media (max-width: 890px) {
+  .identification.covidIdentification {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .identification.covidIdentification img {
+    margin-top: -2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 1570px) {
+  .page2Image {
+    max-width: 400px;
+    margin-top: -3rem;
+    margin-right: -4rem;
+  }
+}
+
+.buttonsParent {
+  margin-left: calc(50% - 60px);
+  margin-bottom: 1rem;
+}
+
+.page2NavigationBtn {
+  width: 100px;
+  background-color: #232323;
+}
+
+.covidQuestions .identificationSubmit {
+  margin: 0;
+}
+
+@media (max-width: 696px) {
+  .page2Image {
+    max-width: 270px;
+    margin-left: -3rem;
+    margin-top: 0;
+  }
+  .covidQuestions {
+    padding: 3rem;
+  }
+
+  .buttonsParent {
+    margin-left: calc(50% - 30px);
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .covidQuestions {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .buttonsParent {
+    margin-top: 2rem;
+  }
+}
+
+.radioItem {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.radioItem.radioItem input {
+  width: 23px;
+  margin-right: 1rem;
+  height: 23px;
+  margin-left: 0.7rem;
+}
+
+.radioItem.radioItem label {
+  font-size: 1rem;
+}
+
+#covidForm p {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+}
+
+#covidForm input[type="date"] {
+  height: auto;
+  padding: 1rem;
 }
