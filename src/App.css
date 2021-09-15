@@ -287,48 +287,6 @@ body {
   justify-content: space-between;
 }
 
-/* .radio-item {
-  display: block;
-  position: relative;
-  padding: 0 6px;
-  margin: 10px 0 0;
-}
-
-.radio-item label {
-  font-size: 1rem;
-  font-weight: 500;
-  font-family: bpgSquare;
-}
-
-.radio-item input[type="radio"] {
-  display: none;
-}
-
-.radio-item label:before {
-  content: " ";
-  display: inline-block;
-  position: relative;
-  top: 5px;
-  margin: 0 5px 0 0;
-  width: 20px;
-  height: 20px;
-  border-radius: 11px;
-  border: 2px solid #c4c4c4;
-  background-color: transparent;
-}
-
-.radio-item input[type="radio"]:checked + label:after {
-  border-radius: 11px;
-  width: 12px;
-  height: 12px;
-  position: absolute;
-  top: 9px;
-  left: 10px;
-  content: " ";
-  display: block;
-  background: #232323;
-} */
-
 .page2Image {
   margin-top: -5rem;
   max-width: 900px;
@@ -356,11 +314,6 @@ body {
 .buttonsParent {
   margin-left: calc(50% - 60px);
   margin-bottom: 1rem;
-}
-
-.page2NavigationBtn {
-  width: 100px;
-  background-color: #232323;
 }
 
 .covidQuestions .identificationSubmit {
@@ -412,12 +365,59 @@ body {
   font-size: 1rem;
 }
 
-#covidForm p {
+#covidForm .radioItem input {
+  /* align-self: center; */
+  /* width: 90%; */
+  /* width: 30%; */
+  /* margin-left: 2% !important; */
+  position: relative;
+  /* left: 1rem; */
+}
+
+#covidForm,
+#vaccinationForm p {
   margin-top: 1.5rem;
   font-size: 1.2rem;
 }
 
-#covidForm input[type="date"] {
+#covidForm input[type="date"],
+#covidForm input[type="text"] {
   height: auto;
   padding: 1rem;
+}
+
+#covidForm > div:last-child input {
+  margin-left: 1rem;
+}
+
+/* page3 */
+/* ================= */
+
+.doctorImg {
+  margin-left: -3rem;
+  margin-top: -3rem;
+}
+
+@media (max-width: 1600px) {
+  .doctorImg {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .doctorImg {
+    max-width: 300px;
+  }
+
+  #vaccinationForm label {
+    /* width: 400px; */
+    max-width: 70%;
+    margin-top: 0.5rem;
+    margin-right: 1rem;
+  }
+}
+
+#vaccinationForm {
+  /* align-self: center; */
+  width: 90%;
 }

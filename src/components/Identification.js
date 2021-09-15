@@ -23,7 +23,6 @@ export default function Identification() {
   const { push } = useHistory();
 
   const onSubmit = (data, isValid) => {
-    console.log(data);
     if (isValid) {
       dispatch(addUser(data));
       push("/questions");

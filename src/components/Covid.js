@@ -1,36 +1,113 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { useHistory } from "react-router";
 
 import page2Image from "../assets/page2.png";
 import Navbar from "./Navbar";
 import NavigationButton from "./NavigationButton";
 import RadioButtonsGroup from "./RadioButtonsGroup";
 import questions from "./textQuestions";
-import { useForm } from "react-hook-form";
+import { addCovidInfo } from "../state/userSlice";
+import { useDispatch } from "react-redux";
 
-function AntiBodies({ yes, question }) {
+const validations = {
+  hadCovid: {
+    required: {
+      value: true,
+      message: "ველის შევსება სავალდებულოა ",
+    },
+  },
+  antiBodies: {
+    date: {
+      required: {
+        value: true,
+        message: "ველის შევსება სავალდებულოა ",
+      },
+    },
+    number: {
+      required: {
+        value: true,
+        message: "ველის შევსება სავალდებულოა ",
+      },
+      pattern: {
+        value: /^\d+$/,
+        message: "გთხოვთ, ჩაწეროთ მხოლოდ ციფრები",
+      },
+    },
+  },
+};
+
+function AntiBodies({
+  yes,
+  question,
+  register,
+  registerNames,
+  validations,
+  errors,
+}) {
   return (
     <div>
       <p>{question}</p>
-      <input type="date" />
-      {yes && <input type="number" />}
+      <input type="date" {...register(registerNames.date, validations.date)} />
+      <div>
+        {errors[registerNames.date] && (
+          <span className="errorNotif">
+            {errors[registerNames.date].message}
+          </span>
+        )}
+      </div>
+      {yes ? (
+        <div>
+          <input
+            type="text"
+            placeholder="ანტისხეულების რაოდენობა"
+            {...register(registerNames.number, validations.number)}
+          />
+          <div>
+            {errors[registerNames.number] && (
+              <span className="errorNotif">
+                {errors[registerNames.number].message}
+              </span>
+            )}
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }
 
 function Covid() {
-  const covid = questions.covid;
-
   const {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
-  } = useForm();
+    formState: { errors, isValid },
+  } = useForm({ mode: "onChange" });
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const [disabled, setDisabled] = useState(true);
+
+  const decideButtonState = (isValid) => {
+    if (isValid) {
+      setDisabled(false);
+    } else {
+      setDisabled(true);
+    }
   };
+
+  useEffect(() => {
+    decideButtonState(isValid);
+  }, [errors, isValid]);
+
+  const dispatch = useDispatch();
+  const { push } = useHistory();
+
+  const onSubmit = (data, isValid) => {
+    if (isValid) {
+      dispatch(addCovidInfo(data));
+      push("/vaccination");
+    }
+  };
+  console.log(errors);
 
   const hadCovid = watch("hadCovid");
   const antisxeulebi = watch("antisxeulebi");
@@ -44,23 +121,42 @@ function Covid() {
             question={questions.covid}
             register={register}
             registerName="hadCovid"
+            validations={validations.hadCovid}
           />
+          {errors.hadCovid && (
+            <span className="errorNotif">{errors.hadCovid.message}</span>
+          )}
           {hadCovid === "კი" && (
             <RadioButtonsGroup
               question={questions.covid.ifYes}
               register={register}
               registerName="antisxeulebi"
+              validations={validations.hadCovid}
             />
+          )}
+          {errors.antisxeulebi && (
+            <span className="errorNotif">{errors.antisxeulebi.message}</span>
           )}
           {antisxeulebi === "კი" && hadCovid === "კი" ? (
             <AntiBodies
               yes={true}
               question="თუ გახსოვს, გთხოვ მიუთითე მიახლოებითი თარიღი და რაოდენობა ანტისხეულების*"
+              register={register}
+              registerNames={{
+                date: "antibodiesDate",
+                number: "antiBodies",
+              }}
+              validations={validations.antiBodies}
+              errors={errors}
             />
           ) : antisxeulebi === "არა" && hadCovid === "კი" ? (
             <AntiBodies
               yes={false}
               question="მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი), როდის გქონდა კოვიდ19"
+              register={register}
+              registerNames={{ date: "covidDate" }}
+              validations={validations.antiBodies}
+              errors={errors}
             />
           ) : (
             ""
@@ -76,11 +172,11 @@ function Covid() {
         <NavigationButton
           direction="left"
           disabled={false}
-          className="page2NavigationBtn"
+          path="/identification"
         />
         <NavigationButton
           direction="right"
-          disabled={true}
+          disabled={disabled}
           formId="covidForm"
         />
       </div>

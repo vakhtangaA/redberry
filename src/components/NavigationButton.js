@@ -1,9 +1,11 @@
 import React from "react";
 import { bool, oneOf } from "prop-types";
+import { Link } from "react-router-dom";
 
 function NavigationButton({
   disabled,
   direction,
+  path,
   formId = "identificationForm",
 }) {
   if (disabled) {
@@ -26,12 +28,26 @@ function NavigationButton({
       </button>
     );
   }
-  return (
-    <button
-      form="identificationForm"
-      type="submit"
-      className="identificationSubmit"
-    >
+  return direction === "left" ? (
+    <Link to={path}>
+      <button
+        form="identificationForm"
+        type="submit"
+        className="identificationSubmit"
+      >
+        <i
+          className={
+            direction === "right"
+              ? "arrowBtnRight"
+              : direction === "left"
+              ? "arrowBtnLeft"
+              : ""
+          }
+        ></i>
+      </button>
+    </Link>
+  ) : (
+    <button form={formId} type="submit" className="identificationSubmit">
       <i
         className={
           direction === "right"

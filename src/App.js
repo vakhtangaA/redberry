@@ -5,6 +5,7 @@ import Start from "./components/Start";
 import Covid from "./components/Covid";
 
 import "./App.css";
+import Vaccination from "./components/Vaccination";
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
         </Route>
         <Route path="/questions">
           <Covid />
+        </Route>
+        <Route path="/vaccination">
+          <Vaccination />
         </Route>
         <Route path="/">
           <Start />
