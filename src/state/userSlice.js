@@ -20,9 +20,15 @@ export const userSlice = createSlice({
         covidInfo: action.payload,
       };
     },
+    addVaccinationInfo: (state, action) => {
+      return {
+        ...state,
+        vaccinationInfo: action.payload,
+      };
+    },
   },
 });
 
-export const { addUser, addCovidInfo } = userSlice.actions;
+export const { addUser, addCovidInfo, addVaccinationInfo } = userSlice.actions;
 
 export default userSlice.reducer;
