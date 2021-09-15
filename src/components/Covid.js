@@ -108,6 +108,10 @@ function Covid() {
     }
   };
 
+  useEffect(() => {
+    decideButtonState(isValid);
+  }, [errors, isValid]);
+
   const hadCovid = watch("hadCovid");
   const antisxeulebi = watch("antisxeulebi");
 
