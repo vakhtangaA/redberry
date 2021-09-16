@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/redberry/static/css/main.b179d547.chunk.css",
-    "main.js": "/redberry/static/js/main.96adbeeb.chunk.js",
-    "main.js.map": "/redberry/static/js/main.96adbeeb.chunk.js.map",
+    "main.js": "/redberry/static/js/main.ec70a307.chunk.js",
+    "main.js.map": "/redberry/static/js/main.ec70a307.chunk.js.map",
     "runtime-main.js": "/redberry/static/js/runtime-main.ed0764c3.js",
     "runtime-main.js.map": "/redberry/static/js/runtime-main.ed0764c3.js.map",
-    "static/js/2.cf8bcbf8.chunk.js": "/redberry/static/js/2.cf8bcbf8.chunk.js",
-    "static/js/2.cf8bcbf8.chunk.js.map": "/redberry/static/js/2.cf8bcbf8.chunk.js.map",
+    "static/js/2.e881fdf5.chunk.js": "/redberry/static/js/2.e881fdf5.chunk.js",
+    "static/js/2.e881fdf5.chunk.js.map": "/redberry/static/js/2.e881fdf5.chunk.js.map",
     "index.html": "/redberry/index.html",
     "static/css/main.b179d547.chunk.css.map": "/redberry/static/css/main.b179d547.chunk.css.map",
-    "static/js/2.cf8bcbf8.chunk.js.LICENSE.txt": "/redberry/static/js/2.cf8bcbf8.chunk.js.LICENSE.txt",
+    "static/js/2.e881fdf5.chunk.js.LICENSE.txt": "/redberry/static/js/2.e881fdf5.chunk.js.LICENSE.txt",
     "static/media/App.css": "/redberry/static/media/right-arrow.f03ab693.svg",
     "static/media/doctor2.78321199.png": "/redberry/static/media/doctor2.78321199.png",
     "static/media/main-logo-round.e5f2a04a.svg": "/redberry/static/media/main-logo-round.e5f2a04a.svg",
@@ -18,8 +18,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.ed0764c3.js",
-    "static/js/2.cf8bcbf8.chunk.js",
+    "static/js/2.e881fdf5.chunk.js",
     "static/css/main.b179d547.chunk.css",
-    "static/js/main.96adbeeb.chunk.js"
+    "static/js/main.ec70a307.chunk.js"
   ]
 }
