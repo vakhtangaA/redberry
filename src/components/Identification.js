@@ -11,7 +11,7 @@ import { addUser } from "../state/userSlice";
 export default function Identification() {
   const [disabled, setDisabled] = useState(true);
 
-  const decideButtonState = (isValid) => {
+  const decideButtonState = isValid => {
     if (isValid) {
       setDisabled(false);
     } else {
