@@ -7,7 +7,7 @@ import Navbar from "./Navbar";
 import NavigationButton from "./NavigationButton";
 import RadioButtonsGroup from "./RadioButtonsGroup";
 import questions from "./textQuestions";
-import { addVaccinationInfo } from "../state/userSlice";
+import { addAdvices } from "../state/userSlice";
 import { useDispatch } from "react-redux";
 import { validations } from "./Covid";
 
@@ -15,7 +15,6 @@ function Advices() {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors, isValid },
   } = useForm({ mode: "onChange" });
 
@@ -41,9 +40,8 @@ function Advices() {
   }, [errors, isValid]);
 
   const onSubmit = (data, isValid) => {
-    console.log(data);
     if (isValid) {
-      dispatch(addVaccinationInfo(data));
+      dispatch(addAdvices(data));
       push("/final");
     }
   };
