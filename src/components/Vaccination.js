@@ -61,7 +61,7 @@ function Vaccination() {
 
   return (
     <div className="identificationParent covidQuestions">
-      <Navbar text="COVID" pages="3/4" />
+      <Navbar text="REDBERRY" pages="3/4" />
       <div className="identification covidIdentification">
         <form onSubmit={handleSubmit(onSubmit)} id="vaccinationForm">
           <RadioButtonsGroup

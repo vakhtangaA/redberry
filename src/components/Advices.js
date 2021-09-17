@@ -47,7 +47,7 @@ function Advices() {
   };
   return (
     <div className="identificationParent covidQuestions" id="advicesParent">
-      <Navbar text="COVID" pages="4/4" />
+      <Navbar text="REDBERRY" pages="4/4" />
 
       <div className="advicesDiv">
         <img
