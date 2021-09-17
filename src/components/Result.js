@@ -9,6 +9,8 @@ const dictionary = {
   antisxeulebi: "გაიკეთე ანტისხეულების ტესტი?",
   antibodiesDate: "ანტისხეულების გაკეთების თარიღი",
   antiBodies: "ანტისხეულების რაოდენობა",
+  isVaccinated: "აცრა გაქვს გაკეთებული?",
+  vaccinationStage: "ვაქცინაციის რა ეტაპზე ხარ?",
   physicalMeetups: "რას ფიქრობ ფიზიკურად შეკრებებზე?",
   currentOpinion: "ახლანდელ გარემოზე რას ფიქრობ?",
   onlineMeetups: "არაფორმალური ონლაინ შეხვედრები კვირაში რამდენჯერ უნდა იყოს?",
