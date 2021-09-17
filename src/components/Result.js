@@ -18,9 +18,6 @@ const dictionary = {
 function Result() {
   const state = useSelector(state => state.user);
 
-  console.log(state);
-  console.log(state);
-
   return (
     <div className="result">
       <div>

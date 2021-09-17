@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router";
+import { useSelector } from "react-redux";
 
 import page2Image from "../assets/page2.png";
 import Navbar from "./Navbar";
@@ -81,8 +82,15 @@ function Covid() {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors, isValid },
   } = useForm({ mode: "onChange" });
+
+  const covidInfo = useSelector(state => state.user.covidInfo);
+
+  useEffect(() => {
+    reset(covidInfo);
+  }, [reset, covidInfo]);
 
   const [disabled, setDisabled] = useState(true);
 

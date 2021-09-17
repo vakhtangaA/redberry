@@ -30,11 +30,7 @@ function NavigationButton({
   }
   return direction === "left" ? (
     <Link to={path}>
-      <button
-        form="identificationForm"
-        type="submit"
-        className="identificationSubmit"
-      >
+      <button className="identificationSubmit">
         <i
           className={
             direction === "right"

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useSelector } from "react-redux";
 
 const validations = {
   name: {
@@ -46,10 +47,10 @@ const validations = {
       message: "მეილის ველი სავალდებულოა",
     },
     validate: {
-      isValidMail: (value) =>
+      isValidMail: value =>
         /^\S+@\S+\.\S+$/.test(value) || "თქვენს მიერ შეყვანილი მეილი არასწორია",
 
-      isValidRedberryMail: (value) =>
+      isValidRedberryMail: value =>
         /^[A-Za-z0-9._%+-]+@redberry.ge$/.test(value) ||
         "გთხოვთ დარეგისტრირდეთ რედბერის მეილით(youremail@redberry.ge)",
     },
@@ -60,10 +61,15 @@ export default function Form({ handleButtonState, onSubmit }) {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isValid },
   } = useForm({ mode: "onChange" });
 
-  console.log("errors", errors);
+  const personalInfo = useSelector(state => state.user.personalInfo);
+
+  useEffect(() => {
+    reset(personalInfo);
+  }, [reset, personalInfo]);
 
   useEffect(() => {
     handleButtonState(isValid);

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router";
+import { useSelector } from "react-redux";
 
 import doctorImg from "../assets/doctor2.png";
 import Navbar from "./Navbar";
@@ -16,6 +17,7 @@ function Vaccination() {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors, isValid },
   } = useForm({ mode: "onChange" });
 
@@ -35,6 +37,12 @@ function Vaccination() {
 
   const dispatch = useDispatch();
   const { push } = useHistory();
+
+  const vaccinationInfo = useSelector(state => state.user.vaccinationInfo);
+
+  useEffect(() => {
+    reset(vaccinationInfo);
+  }, [reset, vaccinationInfo]);
 
   useEffect(() => {
     decideButtonState(isValid);
